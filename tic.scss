@@ -1,0 +1,87 @@
+html, body{
+    height:100%;
+    margin: 0;
+    padding:0;
+}
+
+
+
+body{
+    background-image:url('paperSheet.png');
+    background-size:cover;
+    background-repeat:repeat;
+
+
+    .row{
+
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            font-size: 120px;
+
+            tr{
+
+                td{
+                    height:150px;
+                    width:150px;
+                    padding:5px 30px
+                }
+                #upLeft{
+
+                border-top:0px;
+                border-left:0px;
+                }
+                #upMid{
+
+                    border-top:0px;
+                }
+                #upRight{
+
+                    border-top:0px;
+                    border-right:0px;
+                }
+
+                 #midLeft{
+
+                     border-left:0px;
+                 }
+                 #midMid{
+
+
+                 }
+                 #midRight{
+
+                     border-right:0px;
+                 }
+
+                 #lowLeft{
+
+                     border-left:0px;
+                     border-bottom:0px;
+                 }
+                 #lowMid{
+
+                     border-bottom:0px;
+                 }
+                 #lowRight{
+
+                     border-right:0px;
+                     border-bottom:0px;
+                 }
+            }
+        }
+    }
+}
+
+
+td{
+    border:4px solid black;
+
+
+}
+
+.hidden{
+    display:hide;
+}

@@ -1,0 +1,47 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-image: url("paperSheet.png");
+  background-size: cover;
+  background-repeat: repeat; }
+  body .row table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-size: 120px; }
+    body .row table tr td {
+      height: 150px;
+      width: 150px;
+      padding: 5px 30px; }
+    body .row table tr #upLeft {
+      border-top: 0px;
+      border-left: 0px; }
+    body .row table tr #upMid {
+      border-top: 0px; }
+    body .row table tr #upRight {
+      border-top: 0px;
+      border-right: 0px; }
+    body .row table tr #midLeft {
+      border-left: 0px; }
+    body .row table tr #midRight {
+      border-right: 0px; }
+    body .row table tr #lowLeft {
+      border-left: 0px;
+      border-bottom: 0px; }
+    body .row table tr #lowMid {
+      border-bottom: 0px; }
+    body .row table tr #lowRight {
+      border-right: 0px;
+      border-bottom: 0px; }
+
+td {
+  border: 4px solid black; }
+
+.hidden {
+  display: hide; }
+
+/*# sourceMappingURL=tic.css.map */
