@@ -5,9 +5,10 @@
      <meta charset="UTF-8">
      <title>Tic Tac Toe</title>
      <meta name="description" content="DESCRIPTION">
-    <link rel="stylesheet" href="PATH">
-      <link rel='stylesheet' type='text/css' href='tic.css' />
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+      <link rel='stylesheet' type='text/css' href='tictac.css' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+     crossorigin="anonymous">
      <!--[if lt IE 9]>
        <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
      <![endif]-->
@@ -17,6 +18,9 @@
 
      <div class='container'>
             <div class='row'>
+                <div class='col-md-12'>
+
+
                 <table>
                     <tr>
                         <td id='upLeft'>
@@ -66,12 +70,19 @@
                         </td>
                     </tr>
                 </table>
+                </div>
+                <div class='col-md-12'>
+                    <button id='start'>Start Game</button>
+                    <button id='play1'>One Player</button>
+                    <button id='play2'>Two Players</button>
+                </div>
 
             </div>
      </div>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script src='tic.js'></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
  </body>
 
  </html>
