@@ -4,6 +4,17 @@ html, body{
     padding:0;
 }
 
+p, .O, .X, td{
+    margin:0;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+p{
+    height:100px;
+    width:100px;
+}
 
 
 body{
@@ -26,7 +37,9 @@ body{
                 td{
                     height:150px;
                     width:150px;
-                    padding:5px 30px
+                    padding:0;
+                    text-align: center;
+                    vertical-align:text-top;
                 }
                 #upLeft{
 
