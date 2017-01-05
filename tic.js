@@ -11,20 +11,20 @@ $(function(){
               [3,5,7]];
 
 
-    //Set active player
+    //Set number of players
     $('#play1').on('click',function(){
         $(this).css('background-color','green');
         $('#play2').css('background-color','#E7E7E7');
         playerNum='one';
         player1=1;
-        player2=0;
+        
     });
     $('#play2').on('click',function(){
         $(this).css('background-color', 'green');
         $('#play1').css('background-color','#E7E7E7');
         playerNum='two';
-        player1=0;
-        player2=1;
+        player1=1;
+        player2=0;
 
     });
 
@@ -33,7 +33,9 @@ $(function(){
         if(playerNum !== 'no'){
             $('table').fadeTo('slow',1);
             $('td').text(undefined);
-        }
+            console.log(playerNum);
+            console.log(player1 + " " + player2);
+                    }
     });
 
     $('#reset').on('click',function(){
@@ -44,10 +46,12 @@ $(function(){
 
     });
 
-
+	
+	
         $('td').on('click',function(){
 
             //Add cell position to player array based on grid number.
+            	//if(player 1's turn
             if(player1===1){
 
 
@@ -79,7 +83,7 @@ $(function(){
                 play1.push(9);
 
             }
-console.log(play1);
+
             //add player piece to gameboard
             $(this).append("<p  class='filled' >O</p>");
                 //switch players
@@ -128,22 +132,38 @@ console.log(play1);
                 look(win,play2);
             }
 
-        });
+        });//$('td')
+        
+       
+        
+    		
         //Fxn to check if player arrays have winning numbers. Checks after every turn.
         var look = function(win,p1){
-            console.log(win + "p1" + p1);
+            
             for(var i=1; i<win.length;i++){
 	               var tempArr = [];
 	                  for(var x=0; x<win[i].length; x++){
   	                       tempArr[x] = (p1.indexOf(win[i][x]));
                        }
-                       //console.log(tempArr);
+                     
         if(tempArr[0] !== -1 && tempArr[1] !== -1 && tempArr[2] !== -1){
-console.log(p1[0]+ "Wins!");
+
 
             if(p1[0] === 'Player 1'){
 
                     $('.gameover').append("<h1 class='winner' >player 1 Wins!</h1>");
+                    var restartGame = setTimeout(function(){
+                    		$('.filled').remove();
+       					    $('.winner').remove();
+         					play1 = ['Player 1'];
+         					play2 = ['Player 2'];
+         					$('#play1').css('background-color','#E7E7E7');
+         					$('#play2').css('background-color','#E7E7E7');
+
+                    	
+                    },3000);
+                    
+                    
             }else if(p1[0] === 'Player 2'){
                     $('.gameover').append("<h1 class='winner'>player 2 Wins!</h1>");
             }
