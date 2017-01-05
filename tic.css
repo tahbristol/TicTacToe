@@ -4,6 +4,7 @@ html, body {
   padding: 0; }
 
 p, .O, .X, td {
+  margin: 0;
   margin-left: auto;
   margin-right: auto; }
 
@@ -15,13 +16,11 @@ body {
   background-image: url("paperSheet.png");
   background-size: cover;
   background-repeat: repeat; }
-  body .row .grid {
-    margin-left: 130px; }
   body .row table {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
     font-size: 120px;
     opacity: 0; }
     body .row table tr td {
@@ -49,10 +48,8 @@ body {
     body .row table tr #lowRight {
       border-right: 0px;
       border-bottom: 0px; }
-  body .row .buttons {
-    text-align: center; }
 
 td {
   border: 4px solid black; }
 
-/*# sourceMappingURL=tictac.css.map */
+/*# sourceMappingURL=tic.css.map */
