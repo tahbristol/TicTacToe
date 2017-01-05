@@ -40,9 +40,17 @@ $(function(){
 
     $('#reset').on('click',function(){
         $('.filled').remove();
-        $('.winner').remove();
+     
          play1 = ['Player 1'];
          play2 = ['Player 2'];
+         $('#play1').css('background-color','#E7E7E7');
+         $('#play2').css('background-color','#E7E7E7');
+         $('.winner1').css('visibility', 'hidden');
+         $('.winOne').removeClass('winner2');
+         $('.winOne').addClass('winner1');
+         $('.winTwo').addClass('winner2');
+         
+         
 
     });
 
@@ -85,7 +93,7 @@ $(function(){
             }
 
             //add player piece to gameboard
-            $(this).append("<p  class='filled' >O</p>");
+            $(this).append("<p  class='filled' style='margin:0 auto; margin-bottom:0;' >O</p>");
                 //switch players
                 player1=0;
                 player2=1;
@@ -125,7 +133,7 @@ $(function(){
 
                 }
 
-                $(this).append("<p  class='filled' style='margin:auto;'>X</p>");
+                $(this).append("<p  class='filled'style='margin:0 auto; margin-bottom:0;'>X</p>");
                 player1=1;
                 player2=0;
 
@@ -151,21 +159,40 @@ $(function(){
 
             if(p1[0] === 'Player 1'){
 
-                    $('.gameover').append("<h1 class='winner' >player 1 Wins!</h1>");
+                    
+                    $('.winOne').css('visibility', 'visible');
                     var restartGame = setTimeout(function(){
                     		$('.filled').remove();
-       					    $('.winner').remove();
+       					    //$('.winner').remove();
          					play1 = ['Player 1'];
          					play2 = ['Player 2'];
          					$('#play1').css('background-color','#E7E7E7');
          					$('#play2').css('background-color','#E7E7E7');
+         					$('.winner1').css('visibility', 'hidden');
 
                     	
                     },3000);
                     
                     
             }else if(p1[0] === 'Player 2'){
-                    $('.gameover').append("<h1 class='winner'>player 2 Wins!</h1>");
+                   
+                   $('.winOne').removeClass('winner1');
+                   $('.winOne').addClass('winner2');
+                   $('.winTwo').removeClass('winner2');
+                   restartGame = setTimeout(function(){
+                    		$('.filled').remove();
+       					   
+         					play1 = ['Player 1'];
+         					play2 = ['Player 2'];
+         					$('#play1').css('background-color','#E7E7E7');
+         					$('#play2').css('background-color','#E7E7E7');
+         					$('.winOne').removeClass('winner2');
+         					$('.winOne').addClass('winner1');
+         					$('.winTwo').addClass('winner2');
+         					
+         					},3000);
+
+                   
             }
 
 
