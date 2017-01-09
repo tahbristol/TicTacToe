@@ -17,7 +17,8 @@ $(function(){
         $('#play2').css('background-color','#E7E7E7');
         playerNum='one';
         player1=1;
-        
+        computer=0;
+
     });
     $('#play2').on('click',function(){
         $(this).css('background-color', 'green');
@@ -33,14 +34,12 @@ $(function(){
         if(playerNum !== 'no'){
             $('table').fadeTo('slow',1);
             $('td').text(undefined);
-            console.log(playerNum);
-            console.log(player1 + " " + player2);
-                    }
+}
     });
 
     $('#reset').on('click',function(){
         $('.filled').remove();
-     
+
          play1 = ['Player 1'];
          play2 = ['Player 2'];
          $('#play1').css('background-color','#E7E7E7');
@@ -49,17 +48,23 @@ $(function(){
          $('.winOne').removeClass('winner2');
          $('.winOne').addClass('winner1');
          $('.winTwo').addClass('winner2');
-         
-         
+
+
 
     });
 
-	
-	
+    if(playerNum = 'two'){
+        twoPlayers();
+    }else{
+        onePlayer();
+    }
+
+
+function twoPlayers (){
         $('td').on('click',function(){
-		
+
 	    //Monitor if a space has already been filled.
-	    var id = $(this).attr('id');
+	        var id = $(this).attr('id');
             var space = document.getElementById(id);
             var spaceChild = space.children;
 
@@ -146,25 +151,25 @@ $(function(){
             }
 
         });//$('td')
-        
-       
-        
-    		
+
+
+
+
         //Fxn to check if player arrays have winning numbers. Checks after every turn.
         var look = function(win,p1){
-            
+
             for(var i=1; i<win.length;i++){
 	               var tempArr = [];
 	                  for(var x=0; x<win[i].length; x++){
   	                       tempArr[x] = (p1.indexOf(win[i][x]));
                        }
-                     
+
         if(tempArr[0] !== -1 && tempArr[1] !== -1 && tempArr[2] !== -1){
 
 
             if(p1[0] === 'Player 1'){
 
-                    
+
                     $('.winOne').css('visibility', 'visible');
                     var restartGame = setTimeout(function(){
                     		$('.filled').remove();
@@ -175,18 +180,18 @@ $(function(){
          					$('#play2').css('background-color','#E7E7E7');
          					$('.winner1').css('visibility', 'hidden');
 
-                    	
+
                     },3000);
-                    
-                    
+
+
             }else if(p1[0] === 'Player 2'){
-                   
+
                    $('.winOne').removeClass('winner1');
                    $('.winOne').addClass('winner2');
                    $('.winTwo').removeClass('winner2');
                    restartGame = setTimeout(function(){
                     		$('.filled').remove();
-       					   
+
          					play1 = ['Player 1'];
          					play2 = ['Player 2'];
          					$('#play1').css('background-color','#E7E7E7');
@@ -194,24 +199,122 @@ $(function(){
          					$('.winOne').removeClass('winner2');
          					$('.winOne').addClass('winner1');
          					$('.winTwo').addClass('winner2');
-         					
+
          					},3000);
 
-                   
+
             }
 
 
         }
     }
+};};
+
+
+function onePlayer(){
+
+    $('td').on('click',function(){
+
+    //Monitor if a space has already been filled.
+        var id = $(this).attr('id');
+        var space = document.getElementById(id);
+        var spaceChild = space.children;
+
+        //Add cell position to player array based on grid number.
+            //if(player 1's turn
+        if(player1===1 && spaceChild[0] === undefined){
+
+
+        if($(this).attr('id') === 'upLeft'){
+            play1.push(1);
+
+        }else if($(this).attr('id') === 'upMid'){
+            play1.push(2);
+
+        }else if($(this).attr('id') === 'upRight'){
+            play1.push(3);
+
+        }else if($(this).attr('id') === 'midLeft'){
+            play1.push(4);
+
+        }else if($(this).attr('id') === 'midMid'){
+            play1.push(5);
+
+        }else if($(this).attr('id') === 'midRight'){
+            play1.push(6);
+
+        }else if($(this).attr('id') === 'lowLeft'){
+            play1.push(7);
+
+        }else if($(this).attr('id') === 'lowMid'){
+            play1.push(8);
+
+        }else if($(this).attr('id') === 'lowRight'){
+            play1.push(9);
+
+        }
+
+        //add player piece to gameboard
+        $(this).append("<p  class='filled' style='margin:0 auto; margin-bottom:0;' >O</p>");
+            //switch players
+            player1=0;
+            computer=1;
+
+            //check for winning numbers in player array
+            look(win,play1);
+
+
+        }
+        //computers turn. Need to code AI portion.
+        if(computer===1 && spaceChild[0] === undefined){
+
+
+        if($(this).attr('id') === 'upLeft'){
+            play1.push(1);
+
+        }else if($(this).attr('id') === 'upMid'){
+            play1.push(2);
+
+        }else if($(this).attr('id') === 'upRight'){
+            play1.push(3);
+
+        }else if($(this).attr('id') === 'midLeft'){
+            play1.push(4);
+
+        }else if($(this).attr('id') === 'midMid'){
+            play1.push(5);
+
+        }else if($(this).attr('id') === 'midRight'){
+            play1.push(6);
+
+        }else if($(this).attr('id') === 'lowLeft'){
+            play1.push(7);
+
+        }else if($(this).attr('id') === 'lowMid'){
+            play1.push(8);
+
+        }else if($(this).attr('id') === 'lowRight'){
+            play1.push(9);
+
+        }
+
+        $(this).append("<p  class='filled' style='margin:0 auto; margin-bottom:0;' >X</p>");
+        player1 = 1;
+        computer = 0;
+        
+}
+});
+
+
+function randomNumberAI(){
+     return Math.floor(Math.random(1,10) * (10-1) +1);
 };
 
 
 
 
 
-
-
-
+}
 
 
 
