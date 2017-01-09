@@ -7,6 +7,7 @@ $(function(){
     var playerNum = 'no';
     var play1 = ['Player 1'];
     var play2 = ['Player 2'];
+    var comp = ['Computer'];
     var win = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],
               [3,5,7]];
 
@@ -181,10 +182,13 @@ function twoPlayers (){
          					$('.winner1').css('visibility', 'hidden');
 
 
-                    },3000);
+                    },5000);
 
 
-            }else if(p1[0] === 'Player 2'){
+            }else if(p1[0] === 'Player 2' || p1[0] === 'Computer'){
+                /*if(p1[0] === 'Computer'){
+                    $('.winTwo').text("Computer Wins!");
+                }*/
 
                    $('.winOne').removeClass('winner1');
                    $('.winOne').addClass('winner2');
@@ -200,7 +204,7 @@ function twoPlayers (){
          					$('.winOne').addClass('winner1');
          					$('.winTwo').addClass('winner2');
 
-         					},3000);
+                        },5000);
 
 
             }
@@ -270,38 +274,40 @@ function onePlayer(){
 
 
         if($(this).attr('id') === 'upLeft'){
-            play1.push(1);
+            comp.push(1);
 
         }else if($(this).attr('id') === 'upMid'){
-            play1.push(2);
+            comp.push(2);
 
         }else if($(this).attr('id') === 'upRight'){
-            play1.push(3);
+            comp.push(3);
 
         }else if($(this).attr('id') === 'midLeft'){
-            play1.push(4);
+            comp.push(4);
 
         }else if($(this).attr('id') === 'midMid'){
-            play1.push(5);
+            comp.push(5);
 
         }else if($(this).attr('id') === 'midRight'){
-            play1.push(6);
+            comp.push(6);
 
         }else if($(this).attr('id') === 'lowLeft'){
             play1.push(7);
 
         }else if($(this).attr('id') === 'lowMid'){
-            play1.push(8);
+            comp.push(8);
 
         }else if($(this).attr('id') === 'lowRight'){
-            play1.push(9);
+            comp.push(9);
 
         }
 
         $(this).append("<p  class='filled' style='margin:0 auto; margin-bottom:0;' >X</p>");
         player1 = 1;
         computer = 0;
-        
+
+        look(win,comp);
+
 }
 });
 
