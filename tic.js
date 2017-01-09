@@ -57,10 +57,15 @@ $(function(){
 	
 	
         $('td').on('click',function(){
+		
+	    //Monitor if a space has already been filled.
+	    var id = $(this).attr('id');
+            var space = document.getElementById(id);
+            var spaceChild = space.children;
 
             //Add cell position to player array based on grid number.
             	//if(player 1's turn
-            if(player1===1){
+            if(player1===1 && spaceChild[0] === undefined){
 
 
             if($(this).attr('id') === 'upLeft'){
@@ -102,7 +107,7 @@ $(function(){
                 look(win,play1);
 
                 //if player 2's turn
-            } else if(player2===1){
+            } else if(player2===1 && spaceChild[0] === undefined){
 
                 if($(this).attr('id') === 'upLeft'){
                     play2.push(1);
