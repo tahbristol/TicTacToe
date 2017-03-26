@@ -53,6 +53,7 @@ $(function(){
 
          play1 = ['Player 1'];
          play2 = ['Player 2'];
+	 playerNum = 'no';
          $('#play1').css('background-color','#E7E7E7');
          $('#play2').css('background-color','#E7E7E7');
          $('.winner1').css('visibility', 'hidden');
